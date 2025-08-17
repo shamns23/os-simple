@@ -1,4 +1,5 @@
 #include "task.h"
+#include <stdint.h>
 
 // متغيرات عامة لإدارة المهام
 task_t* current_task = 0;           // المهمة الحالية
@@ -65,7 +66,7 @@ task_t* create_task(const char* name, void* entry_point) {
     new_task->state = TASK_READY;
     new_task->priority = 10;  // أولوية افتراضية
     new_task->parent_pid = current_task ? current_task->pid : INVALID_PID;
-    new_task->eip = (uint32_t)entry_point;
+    new_task->eip = (uint32_t)(uintptr_t)entry_point;
     
     // نسخ اسم المهمة
     for (int i = 0; i < 15 && name[i]; i++) {
