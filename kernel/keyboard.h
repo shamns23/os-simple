@@ -83,7 +83,6 @@ char keyboard_getchar(void);                 // قراءة حرف من المخ�
 bool keyboard_has_input(void);               // فحص وجود إدخال
 void keyboard_flush_buffer(void);            // إفراغ المخزن
 char scancode_to_ascii(uint8_t scancode);    // تحويل رمز المسح إلى ASCII
-// Internal functions are now static in keyboard.c
 void print_keyboard_stats(void);             // طباعة الإحصائيات
 
 // Buffer management - إدارة المخزن

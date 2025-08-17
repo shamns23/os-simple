@@ -215,6 +215,41 @@ void print_task_info() {
     print_string("========================\n");
 }
 
+// طباعة معلومات مهمة محددة بالمعرف
+void print_task_info_by_pid(int pid) {
+    task_t* task = find_task(pid);
+    if (!task) {
+        print_string("[ERROR] Task with PID ");
+        print_number(pid);
+        print_string(" not found\n");
+        return;
+    }
+    
+    print_string("Task PID: ");
+    print_number(task->pid);
+    print_string(" Name: ");
+    print_string(task->name);
+    print_string(" State: ");
+    
+    switch (task->state) {
+        case TASK_RUNNING:
+            print_string("RUNNING");
+            break;
+        case TASK_READY:
+            print_string("READY");
+            break;
+        case TASK_SLEEPING:
+            print_string("SLEEPING");
+            break;
+        case TASK_ZOMBIE:
+            print_string("ZOMBIE");
+            break;
+        default:
+            print_string("UNKNOWN");
+    }
+    print_string("\n");
+}
+
 // حفظ سياق المهمة (مبسط)
 void save_task_context(task_t* task) {
     // في تطبيق حقيقي، هنا نحفظ جميع السجلات

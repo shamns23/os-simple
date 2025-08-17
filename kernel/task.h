@@ -45,7 +45,8 @@ void task_exit(int exit_code);      // إنهاء المهمة
 void task_sleep(int ticks);         // إيقاف المهمة مؤقتاً
 void task_wake(task_t* task);       // إيقاظ المهمة
 task_t* find_task(int pid);         // البحث عن مهمة بالمعرف
-void print_task_info();             // طباعة معلومات المهام
+void print_task_info();             // طباعة معلومات جميع المهام
+void print_task_info_by_pid(int pid); // طباعة معلومات مهمة محددة
 
 // دوال مساعدة
 void switch_to_task(task_t* task);  // التبديل إلى مهمة

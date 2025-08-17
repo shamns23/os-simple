@@ -135,8 +135,8 @@ void kernel_main() {
     
     // طباعة معلومات المهام
     print_string("\n[KERNEL] معلومات المهام الحالية:\n");
-    print_task_info(0); // المهمة الرئيسية
-    print_task_info(1); // المهمة التجريبية
+    print_task_info_by_pid(0); // المهمة الرئيسية
+    print_task_info_by_pid(1); // المهمة التجريبية
     
     // تفعيل المقاطعات
     print_string("\n[KERNEL] تفعيل المقاطعات...\n");
@@ -189,6 +189,7 @@ void kernel_main() {
     
     print_string("\n=== System Ready ===\n");
     print_string("All Linux 0.01 inspired features initialized!\n");
+    print_string("[DEBUG] Entering main loop...\n");
     
     // Keep system running
     while (1) {

@@ -2,7 +2,7 @@
 #include "kernel.h"
 #include "interrupt.h"
 
-// Forward declarations - التصريحات المسبقة
+// Forward declarations for static functions
 static void handle_key_press(uint8_t scancode);
 static void handle_key_release(uint8_t scancode);
 static bool is_special_key(uint8_t scancode);
@@ -186,6 +186,8 @@ static void handle_special_key(uint8_t scancode) {
             break;
         case KEY_CAPS:
             keyboard_state.caps_lock = !keyboard_state.caps_lock;
+            break;
+        default:
             break;
     }
 }
